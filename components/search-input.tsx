@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -17,10 +17,19 @@ const SearchInput = () => {
   const [value, setValue] = useState(name || "");
   const debouncedValue = useDebounce<string>(value, 500);
 
+  const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setValue(e.target.value);
+  };
+
   return (
     <div className="relative">
       <Search className="absolute h-4 w-4 top-3 left-4 text-muted-foreground" />
-      <Input placeholder="search..." className="pl-10 bg-primary/10" />
+      
+      <Input
+        placeholder="search..."
+        className="pl-10 bg-primary/10"
+        onChange={onChange}
+      />
     </div>
   );
 };
