@@ -1,6 +1,7 @@
 "use client";
 
-import { ChangeEventHandler, useState } from "react";
+import qs from "query-string";
+import { ChangeEventHandler, useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 
@@ -21,10 +22,28 @@ const SearchInput = () => {
     setValue(e.target.value);
   };
 
+  useEffect(() => {
+    const query = {
+      name: debouncedValue,
+      categoryId: categoryId,
+    };
+
+    const url = qs.stringifyUrl(
+      {
+        url: window.location.href,
+        query: query,
+      },
+      {
+        skipEmptyString: true,
+        skipNull: true,
+      }
+    );
+  }, [debouncedValue, router, categoryId]);
+
   return (
     <div className="relative">
       <Search className="absolute h-4 w-4 top-3 left-4 text-muted-foreground" />
-      
+
       <Input
         placeholder="search..."
         className="pl-10 bg-primary/10"
