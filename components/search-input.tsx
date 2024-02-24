@@ -38,6 +38,8 @@ const SearchInput = () => {
         skipNull: true,
       }
     );
+
+    router.push(url);
   }, [debouncedValue, router, categoryId]);
 
   return (
