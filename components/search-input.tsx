@@ -1,10 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { Search } from "lucide-react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import { Input } from "@/components/ui/input";
-import { useState } from "react";
 
 const SearchInput = () => {
   const router = useRouter();
@@ -13,7 +13,7 @@ const SearchInput = () => {
   const categoryId = searchParams.get("categoryId");
   const name = searchParams.get("name");
 
-    
+  const [value, setValue] = useState(name || "");
 
   return (
     <div className="relative">
