@@ -37,15 +37,13 @@ export const Categories = ({ data }: CategoriesProps) => {
       <button
         onClick={() => onClick(undefined)}
         className={cn(
-          `
-          flex items-center text-center text-xs md:text-sm
+          `flex items-center text-center text-xs md:text-sm
           px-2 md:px-4
           py-2 md:py-3
           rounded-md
           bg-primary/10
           hover:opacity-75
-          transition
-      `,
+          transition`,
           !categoryId ? "bg-primary/25" : "bg-primary/10"
         )}
       >
