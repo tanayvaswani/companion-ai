@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Search } from "lucide-react";
 
@@ -8,7 +8,7 @@ const SearchInput = () => {
   return (
     <div className="relative">
       <Search className="absolute h-4 w-4 top-3 left-4 text-muted-foreground" />
-      <Input />
+      <Input placeholder="search..." className="pl-10 bg-primary/10" />
     </div>
   );
 };
