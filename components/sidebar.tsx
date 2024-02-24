@@ -2,7 +2,7 @@
 
 import { HomeIcon, Plus, Settings } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 
