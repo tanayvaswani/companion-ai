@@ -35,6 +35,7 @@ export const Categories = ({ data }: CategoriesProps) => {
   return (
     <div className="w-full overflow-x-auto space-x-2 flex p-1">
       <button
+        onClick={() => onClick(undefined)}
         className={cn(`
           flex items-center text-center text-xs md:text-sm
           px-2 md:px-4
@@ -51,6 +52,7 @@ export const Categories = ({ data }: CategoriesProps) => {
       {data.map((item) => {
         return (
           <button
+            onClick={() => onClick(item.id)}
             key={item.id}
             className={cn(`
               flex items-center text-center text-xs md:text-sm
