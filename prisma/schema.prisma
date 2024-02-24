@@ -32,4 +32,5 @@ model Companion {
   categoryId   String
 
   @@index([categoryId])
+  @@fulltext([name])
 }
