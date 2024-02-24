@@ -32,10 +32,11 @@ const Navbar = () => {
       </div>
 
       <div className="flex items-center gap-x-3">
-        <Button>
+        <Button size={"sm"} variant={"premium"}>
           Upgrade
           <Sparkles className="h-4 w-4 ml-2 text-white" fill="white" />
         </Button>
+
         <UserButton />
       </div>
     </div>
