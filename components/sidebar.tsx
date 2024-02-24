@@ -52,7 +52,8 @@ const Sidebar = () => {
                 )}
               >
                 <div className="flex flex-col gap-y-2 items-center flex-1">
-                  {route.icon} {route.label}
+                  {route.icon}
+                  {route.label}
                 </div>
               </div>
             );
