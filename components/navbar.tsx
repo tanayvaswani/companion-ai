@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { ThemeToggle } from "./theme-toggle";
 
 const pop = Poppins({
   weight: ["600"],
@@ -38,6 +39,8 @@ const Navbar = () => {
         </Button>
 
         <UserButton />
+
+        <ThemeToggle />
       </div>
     </div>
   );
