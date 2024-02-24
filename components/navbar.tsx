@@ -38,9 +38,9 @@ const Navbar = () => {
           <Sparkles className="h-4 w-4 ml-2 text-white" fill="white" />
         </Button>
 
-        <UserButton />
-
         <ThemeToggle />
+
+        <UserButton />
       </div>
     </div>
   );
