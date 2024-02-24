@@ -3,9 +3,7 @@ import SearchInput from "@/components/search-input";
 import prismadb from "@/lib/prismadb";
 
 const RootPage = async () => {
-  const categories = await prismadb.category.findMany({
-    where: {},
-  });
+  const categories = await prismadb.category.findMany();
 
   return (
     <main className="h-full p-4 space-y-2">
