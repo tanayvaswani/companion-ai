@@ -4,10 +4,10 @@ const db = new PrismaClient();
 
 async function main() {
   try {
-    // some stuff
+
   } catch (error) {
-    console.error(error);
+    console.error("Error seeding default categories: ", error);
   } finally {
-    db.prisma.$disconnect();
+    await db.$disconnect();
   }
 }
