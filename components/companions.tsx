@@ -16,6 +16,8 @@ const Companions = ({ data }: CompanionProps) => {
         <div className="relative w-60 h-60">
           <Image src="/empty.png" alt="empty" className="grayscale" fill />
         </div>
+
+        <p className="text-sm text-muted-foreground">No Companions found!</p>
       </div>
     );
   }
