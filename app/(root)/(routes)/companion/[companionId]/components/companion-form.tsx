@@ -235,7 +235,7 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
                     className="bg-background resize-none"
                     rows={7}
                     disabled={isLoading}
-                    placeholder=""
+                    placeholder={PREAMBLE}
                     {...field}
                   />
                 </FormControl>
