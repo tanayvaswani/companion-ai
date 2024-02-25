@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Companion, Message } from "@prisma/client";
+import BotAvatar from "./bot-avatar";
 
 interface ChatHeaderProps {
   companion: Companion & {
@@ -30,6 +31,7 @@ const ChatHeader = ({ companion }: ChatHeaderProps) => {
         >
           <ChevronLeft className="h-8 w-8" />
         </Button>
+        <BotAvatar src={companion.src} />
       </div>
     </div>
   );
