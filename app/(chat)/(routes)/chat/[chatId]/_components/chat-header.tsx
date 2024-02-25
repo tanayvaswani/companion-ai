@@ -43,6 +43,9 @@ const ChatHeader = ({ companion }: ChatHeaderProps) => {
       toast({
         description: "DELETE SUCCESS",
       });
+
+      router.refresh();
+      router.push("/");
     } catch (error) {
       toast({
         variant: "destructive",
