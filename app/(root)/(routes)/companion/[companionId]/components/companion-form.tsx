@@ -249,6 +249,32 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
               </FormItem>
             )}
           />
+
+          <FormField
+            name="seed"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem className="col-span-2 md:col-span-1">
+                <FormLabel>Example Converstaion</FormLabel>
+
+                <FormControl>
+                  <Textarea
+                    className="bg-background resize-none"
+                    rows={7}
+                    disabled={isLoading}
+                    placeholder={SEED_CHAT}
+                    {...field}
+                  />
+                </FormControl>
+
+                <FormDescription>
+                  Provide a conversation example for your companion
+                </FormDescription>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </form>
       </Form>
     </div>
