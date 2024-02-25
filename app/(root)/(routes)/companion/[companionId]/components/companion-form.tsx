@@ -241,7 +241,8 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
                 </FormControl>
 
                 <FormDescription>
-                  This is how your AI companions is named
+                  Describe in details, your companion&apos;s backstory &
+                  relevant details
                 </FormDescription>
 
                 <FormMessage />
