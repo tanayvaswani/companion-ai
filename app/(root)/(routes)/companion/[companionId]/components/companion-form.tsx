@@ -17,7 +17,13 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ImageUpload } from "@/components/image-upload";
 import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -87,7 +93,6 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
             name="src"
             render={({ field }) => (
               <FormItem className="flex flex-col items-center justify-center space-y-4">
-                
                 <FormControl>
                   <ImageUpload
                     disabled={isLoading}
@@ -107,7 +112,6 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
               control={form.control}
               render={({ field }) => (
                 <FormItem className="col-span-2 md:col-span-1">
-
                   <FormLabel>Name</FormLabel>
 
                   <FormControl>
@@ -158,9 +162,33 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
                 <FormItem>
                   <FormLabel>Category</FormLabel>
 
-                  <Select>
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
+                    defaultValue={field.value}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="bg-background">
+                        <SelectValue
+                          defaultValue={field.value}
+                          placeholder={"Select a category"}
+                        />
+                      </SelectTrigger>
+                    </FormControl>
 
+                    <SelectContent>
+                      {categories.map((category) => (
+                        <SelectItem key={category.id} value={category.id}>
+                          {category.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
                   </Select>
+
+                  <FormDescription>
+                    Select a category for your companion
+                  </FormDescription>
                 </FormItem>
               )}
             />
