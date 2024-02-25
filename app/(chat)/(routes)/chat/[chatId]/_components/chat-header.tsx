@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Companion, Message } from "@prisma/client";
-import BotAvatar from "./bot-avatar";
+import BotAvatar from "@/components/bot-avatar";
 
 interface ChatHeaderProps {
   companion: Companion & {
