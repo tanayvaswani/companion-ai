@@ -10,10 +10,12 @@ import {
   FormControl,
   FormField,
   FormItem,
+  FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
 import { ImageUpload } from "@/components/image-upload";
+import { Input } from "@/components/ui/input";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -61,7 +63,7 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
   };
 
   return (
-    <div className="h-full space-y-2 max-w-3xl mx-auto">
+    <div className="h-full p-4 space-y-2 max-w-3xl mx-auto">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -95,6 +97,25 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
               </FormItem>
             )}
           />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <FormField
+              name="name"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="col-span-2 md:col-span-1">
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      placeholder="Elon Musk"
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+          </div>
         </form>
       </Form>
     </div>
