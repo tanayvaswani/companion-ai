@@ -13,6 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
+import { ImageUpload } from "@/components/image-upload";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -82,7 +83,13 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
             name="src"
             render={({ field }) => (
               <FormItem className="flex flex-col items-center justify-center space-y-4">
-                <FormControl>Image Upload</FormControl>
+                <FormControl>
+                  <ImageUpload
+                    disabled={isLoading}
+                    onChange={field.onChange}
+                    value={field.value}
+                  />
+                </FormControl>
 
                 <FormMessage />
               </FormItem>
