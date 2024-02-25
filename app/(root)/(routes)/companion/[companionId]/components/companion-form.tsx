@@ -24,6 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -193,6 +194,44 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
               )}
             />
           </div>
+
+          <div className="space-y-2 w-full">
+            <div>
+              <h3 className="text-lg font-medium">Configuration</h3>
+
+              <p className="text-sm text-muted-foreground">
+                Detailed instructions for AI behaviour
+              </p>
+            </div>
+
+            <Separator className="bg-primary/10" />
+          </div>
+
+          <FormField
+            name="instructions"
+            control={form.control}
+            render={({ field }) => (
+              <FormItem className="col-span-2 md:col-span-1">
+                <FormLabel>Instructions</FormLabel>
+
+                <FormControl>
+                  <Textarea
+                    className="bg-background resize-none"
+                    rows={7}
+                    disabled={isLoading}
+                    placeholder=""
+                    {...field}
+                  />
+                </FormControl>
+
+                <FormDescription>
+                  This is how your AI companions is named
+                </FormDescription>
+
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </form>
       </Form>
     </div>
