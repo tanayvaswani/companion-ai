@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -16,6 +17,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ImageUpload } from "@/components/image-upload";
 import { Input } from "@/components/ui/input";
+import { Select } from "@/components/ui/select";
 
 const formSchema = z.object({
   name: z.string().min(1, {
@@ -85,6 +87,7 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
             name="src"
             render={({ field }) => (
               <FormItem className="flex flex-col items-center justify-center space-y-4">
+                
                 <FormControl>
                   <ImageUpload
                     disabled={isLoading}
@@ -104,7 +107,9 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
               control={form.control}
               render={({ field }) => (
                 <FormItem className="col-span-2 md:col-span-1">
+
                   <FormLabel>Name</FormLabel>
+
                   <FormControl>
                     <Input
                       disabled={isLoading}
@@ -112,6 +117,50 @@ const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
                       {...field}
                     />
                   </FormControl>
+
+                  <FormDescription>
+                    This is how your AI companions is named
+                  </FormDescription>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              name="description"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="col-span-2 md:col-span-1">
+                  <FormLabel>Description</FormLabel>
+
+                  <FormControl>
+                    <Input
+                      disabled={isLoading}
+                      placeholder="CEO Tesla, Inc."
+                      {...field}
+                    />
+                  </FormControl>
+
+                  <FormDescription>
+                    Short description for your AI companion
+                  </FormDescription>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              name="categoryId"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Category</FormLabel>
+
+                  <Select>
+
+                  </Select>
                 </FormItem>
               )}
             />
